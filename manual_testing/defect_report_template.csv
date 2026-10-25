@@ -1,0 +1,2 @@
+Defect ID,Title,Build/Version,Environment,Steps to Reproduce,Expected Result,Actual Result,Severity,Priority,Status,Reported By,Date
+BUG-001,Example title,1.0,Windows 11 + Chrome,"1. Open page; 2. ...",Expected behavior,Actual behavior,Medium,Medium,Open,Group 18,YYYY-MM-DD

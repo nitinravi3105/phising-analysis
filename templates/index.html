@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Analyzer | PhishGuard Evidence Lab{% endblock %}
+{% block content %}
+<section class="hero p-4 p-md-5 mb-4">
+  <span class="eyebrow">DIGITAL SAFETY • EVIDENCE REPORTING</span>
+  <h1 class="display-6 fw-bold mt-2">Analyze suspicious messages.</h1>
+  <p class="lead mb-0">Inspect warning signs, save an evidence record, and generate a downloadable report.</p>
+</section>
+<div class="row g-3 mb-4">
+  <div class="col-md-4"><div class="stat-card"><span>Total records</span><strong>{{ total }}</strong></div></div>
+  <div class="col-md-4"><div class="stat-card"><span>Medium risk</span><strong>{{ medium }}</strong></div></div>
+  <div class="col-md-4"><div class="stat-card"><span>High risk</span><strong>{{ high }}</strong></div></div>
+</div>
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="card panel-card">
+      <div class="card-body p-4">
+        <h2 class="h4">Analyze a message</h2>
+        <p class="text-secondary">Use synthetic examples or content you are authorized to examine. Do not submit real passwords or OTPs.</p>
+        <form action="{{ url_for('analyze') }}" method="post">
+          <label class="form-label" for="message_type">Input type</label>
+          <select class="form-select mb-3" id="message_type" name="message_type">
+            <option>Message</option><option>SMS</option><option>Email</option><option>URL</option>
+          </select>
+          <label class="form-label" for="message">Message or URL</label>
+          <textarea class="form-control mb-3" id="message" name="message" rows="7" maxlength="10000" required placeholder="Example: Urgent: verify your password immediately at https://example.invalid/login"></textarea>
+          <div class="d-flex justify-content-between align-items-center gap-3 flex-wrap">
+            <span class="small text-secondary">Maximum 10,000 characters</span>
+            <button class="btn btn-primary px-4" id="analyze-button" type="submit">Analyze &amp; Save Evidence</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="card panel-card h-100">
+      <div class="card-body p-4">
+        <h2 class="h5">What this tool checks</h2>
+        <ul class="feature-list">
+          <li>Urgency and pressure language</li><li>Credential or sensitive-data requests</li>
+          <li>Payment, prize, and reward language</li><li>Known URL-shortener patterns</li>
+          <li>IP-address URLs and selected URL anomalies</li>
+        </ul>
+        <div class="notice mt-4"><strong>Important:</strong> this is a rule-based educational demo, not an antivirus product. A low score does not mean a message is safe.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% if recent %}
+<div class="card panel-card mt-4"><div class="card-body p-4">
+  <div class="d-flex justify-content-between align-items-center"><h2 class="h5 mb-3">Recent evidence</h2><a href="{{ url_for('history') }}">View all</a></div>
+  <div class="table-responsive"><table class="table align-middle">
+    <thead><tr><th>ID</th><th>Type</th><th>Risk</th><th>Recorded</th></tr></thead><tbody>
+    {% for item in recent %}<tr><td><a href="{{ url_for('evidence_detail', evidence_id=item.id) }}">E-{{ '%05d'|format(item.id) }}</a></td><td>{{ item.message_type }}</td><td><span class="risk risk-{{ item.risk_level|lower }}">{{ item.risk_level }} · {{ item.risk_score }}</span></td><td>{{ item.created_at[:19].replace('T',' ') }}</td></tr>{% endfor %}
+    </tbody></table></div>
+</div></div>
+{% endif %}
+{% endblock %}

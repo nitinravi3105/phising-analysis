@@ -1,0 +1,13 @@
+Scenario ID,Area,Scenario,Priority
+TS01,Input validation,Submit empty message,High
+TS02,Input validation,Submit message over 10000 characters,High
+TS03,Analysis,Analyze plain harmless message,High
+TS04,Analysis,Analyze urgent credential-request message,High
+TS05,Analysis,Analyze message with shortened URL,High
+TS06,Evidence,Verify unique evidence ID is created,High
+TS07,Evidence,Verify evidence appears in history,High
+TS08,Report,Download PDF report,High
+TS09,Report,Verify report contains hash and risk details,Medium
+TS10,Navigation,Open nonexistent evidence ID,Medium
+TS11,Input validation,Try unsupported message type,Low
+TS12,UI,Check layout on desktop and mobile widths,Medium

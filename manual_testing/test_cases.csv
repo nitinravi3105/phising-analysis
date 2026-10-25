@@ -1,0 +1,11 @@
+Test Case ID,Scenario ID,Preconditions,Steps,Expected Result,Actual Result,Status,Defect ID
+TC01,TS01,Application is running,"Leave message blank and click Analyze",Browser prevents empty submission or app shows validation message,,Not Run,
+TC02,TS03,Application is running,"Enter 'The team meeting is at 3 PM tomorrow.' and analyze",Result page appears with Low risk,,Not Run,
+TC03,TS04,Application is running,"Enter 'URGENT: verify your password immediately' and analyze",Result shows warning indicators and High risk,,Not Run,
+TC04,TS05,Application is running,"Enter 'Check https://bit.ly/demo' and analyze,URL shortener indicator is shown,,Not Run,
+TC05,TS06,Application is running,"Analyze a sample message and note evidence ID",Unique evidence ID is displayed,,Not Run,
+TC06,TS07,At least one message has been analyzed,"Open Evidence History",Saved record appears in table,,Not Run,
+TC07,TS08,At least one message has been analyzed,"Click PDF on a record",PDF downloads and opens,,Not Run,
+TC08,TS10,Application is running,"Navigate to /evidence/999999",A 404 page is shown,,Not Run,
+TC09,TS02,Application is running,"Submit more than 10000 characters",A validation message is shown and record is not created,,Not Run,
+TC10,TS09,At least one message has been analyzed,"Download report and inspect evidence ID, score, indicators and hash",Report contains the selected evidence details,,Not Run,

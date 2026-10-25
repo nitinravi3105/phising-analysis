@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Analysis Result | PhishGuard Evidence Lab{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+  <div><span class="eyebrow">ANALYSIS COMPLETE</span><h1 class="h2 mt-2">Evidence E-{{ '%05d'|format(record.id) }}</h1><p class="text-secondary mb-0">Recorded at {{ record.created_at }} (UTC)</p></div>
+  <a class="btn btn-outline-primary" href="{{ url_for('download_report', evidence_id=record.id) }}">Download PDF report</a>
+</div>
+<div class="row g-3 mb-4">
+  <div class="col-md-4"><div class="stat-card"><span>Risk score</span><strong>{{ record.risk_score }}<small>/100</small></strong></div></div>
+  <div class="col-md-4"><div class="stat-card"><span>Risk level</span><strong><span class="risk risk-{{ record.risk_level|lower }}">{{ record.risk_level }}</span></strong></div></div>
+  <div class="col-md-4"><div class="stat-card"><span>Input type</span><strong class="h3">{{ record.message_type }}</strong></div></div>
+</div>
+<div class="card panel-card mb-4"><div class="card-body p-4">
+  <h2 class="h5">Analysis summary</h2><p>{{ record.summary }}</p>
+  <h3 class="h6 mt-4">Detected indicators</h3>
+  {% for indicator in indicators %}
+  <div class="indicator-row"><div><strong>{{ indicator.name }}</strong><div class="text-secondary small">{{ indicator.detail }}</div></div><span class="badge text-bg-light">{{ indicator.points }} pts</span></div>
+  {% endfor %}
+</div></div>
+<div class="card panel-card mb-4"><div class="card-body p-4">
+  <h2 class="h5">Submitted content</h2><pre class="message-content">{{ record.content }}</pre>
+  <h2 class="h6 mt-4">SHA-256 content hash</h2><code class="hash">{{ record.content_hash }}</code>
+  <p class="small text-secondary mt-2 mb-0">The hash can help identify changes to this saved text. It does not independently prove source authenticity or chain of custody.</p>
+</div></div>
+<a class="btn btn-primary" href="{{ url_for('index') }}">Analyze another message</a>
+{% endblock %}

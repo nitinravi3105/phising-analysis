@@ -1,17 +1,23 @@
 <<<<<<< HEAD
-# Group 18 — PhishGuard Evidence Lab
+PhishGuard Evidence Lab
 
-**CSDF:** Phishing Message Analysis and Digital Evidence Reporting System  
-**STQA Manual:** Manual Testing of a Phishing Message Analysis Web Application  
-**STQA Automation:** Automated Testing Using Selenium WebDriver and Pytest
+**PhishGuard Evidence Lab** is an educational web application for analyzing potentially suspicious SMS messages, emails, and URLs using rule-based phishing detection. It assigns a risk score, explains detected warning indicators, and stores analysis records for evidence review and PDF reporting.
 
-## Features
-- Rule-based analysis of a pasted SMS, email, message, or URL.
-- Risk score from 0 to 100 and Low / Medium / High classification.
-- Explanations for configured warning indicators.
-- SQLite evidence records with UTC timestamp and SHA-256 content hash.
+### Project Documentation
+
+- **CSDF:** Phishing Message Analysis and Digital Evidence Reporting System
+- **STQA Manual:** Manual Testing of a Phishing Message Analysis Web Application
+- **STQA Automation:** Automated Testing Using Selenium WebDriver and Pytest
+
+### Key Features
+
+- Rule-based analysis of pasted SMS messages, emails, and URLs.
+- Risk scoring from 0 to 100, with Low, Medium, and High classifications.
+- Explanations of detected warning indicators.
+- SQLite evidence storage with UTC timestamps and SHA-256 content hashes.
 - Evidence history and downloadable PDF reports.
-- Manual test scenarios, test cases, defect template, unit tests, and Selenium tests.
+- Manual test scenarios, test cases, defect-report templates, unit tests, and Selenium automation tests.
+
 
 ## Requirements
 - Python 3.10 or newer

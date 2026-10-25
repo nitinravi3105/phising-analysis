@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Group 18 — PhishGuard Evidence Lab
+
 
 **CSDF:** Phishing Message Analysis and Digital Evidence Reporting System  
 **STQA Manual:** Manual Testing of a Phishing Message Analysis Web Application  

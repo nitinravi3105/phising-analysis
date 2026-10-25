@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Group 18 — PhishGuard Evidence Lab
 
 **CSDF:** Phishing Message Analysis and Digital Evidence Reporting System  
@@ -113,3 +114,6 @@ The app stores the exact submitted text, UTC timestamp, findings, and SHA-256 ha
 8. Why use explicit waits?
 9. What is regression testing?
 10. What are the limitations of rule-based classification?
+=======
+# phising-analysis
+>>>>>>> 3e9bbe19ad6c1ce3c103df64b1a4b327090e33d8
